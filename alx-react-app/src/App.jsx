@@ -34,9 +34,9 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
         <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-        <Header/>
-        <MainContent/>
-        <Footer/>
+        <Header/>;
+        <MainContent/>;
+        <Footer/>;
 
       </div>
       <p className="read-the-docs">
