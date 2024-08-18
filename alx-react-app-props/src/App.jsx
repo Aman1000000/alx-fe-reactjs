@@ -6,7 +6,7 @@ import './App.css'
 import ProfilePage from './component/ProfilePage.jsx'
 import UserDetails from './component/UserDetails.jsx'
 import UserInfo from './component/UserInfo.jsx'
-import UserContext from './userContext.js'
+import UserContext from './component/UserContext.js'
 function App() {
   const userData = { name: "Jane Doe", age: 30 };
 
