@@ -11,7 +11,7 @@ function App() {
       <div>
         <h1>Recipe Sharing App</h1>
         <AddRecipeForm />
-        <DeleteRecipeButton recipeId={recipeId} />
+   
         <Routes>
           <Route path="/" element={<RecipeList />} />
           <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
