@@ -1,8 +1,9 @@
 module.exports = {
   content: [
-    './src/**/*.{html,js,jsx,ts,tsx}', // Update with your project's file extensions
-    './public/index.html', // Include specific files
+    './src/**/*.{html,js,jsx,ts,tsx}', // Adjust paths as needed
+    './public/index.html',
   ],
+  darkMode: 'media', // or 'class'
   theme: {
     extend: {},
   },
