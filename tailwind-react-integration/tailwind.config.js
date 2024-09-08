@@ -1,13 +1,10 @@
 module.exports = {
   content: [
-    './pages/**/*.{html,js}',
-    './components/**/*.{html,js}',
-    './index.html', 
+    './src/**/*.{html,js,jsx,ts,tsx}', // Update with your project's file extensions
+    './public/index.html', // Include specific files
   ],
-  darkMode: 'media', 
- 
-  content: [
-    './src/**/*.{html,js,jsx}',
-    './public/index.html',
-  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 }
