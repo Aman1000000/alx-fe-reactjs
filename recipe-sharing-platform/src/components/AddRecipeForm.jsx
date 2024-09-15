@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
@@ -11,7 +10,7 @@ const AddRecipeForm = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // Ensure we're accessing target.value
     setFormData({ ...formData, [name]: value });
   };
 
@@ -30,6 +29,7 @@ const AddRecipeForm = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
+      // Handle form submission
       console.log('Form submitted:', formData);
     }
   };
