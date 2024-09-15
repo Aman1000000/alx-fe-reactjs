@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const AddRecipeForm = () => {
@@ -29,7 +30,6 @@ const AddRecipeForm = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Handle form submission
       console.log('Form submitted:', formData);
     }
   };
