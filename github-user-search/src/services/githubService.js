@@ -2,9 +2,9 @@
 
 import axios from 'axios';
 
-const fetchUserData = async (username) => {
-  const response = await axios.get(`https://api.github.com/users/${username}`);
+const fetchUsers = async (query) => {
+  const response = await axios.get(`https://api.github.com/search/users?q=${query}`);
   return response.data;
 };
 
-export default fetchUserData;
+export default fetchUsers;
