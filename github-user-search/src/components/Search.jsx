@@ -1,59 +1,57 @@
 
+
 import React, { useState } from 'react';
-import { fetchUserData } from '../services/githubService';
+import fetchUserData from '../services/githubService';
 
-const Search = () => {
+function Search() {
   const [username, setUsername] = useState('');
-  const [userData, setUserData] = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
 
-  const handleInputChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-    setUserData(null);
+    setError(false);
+    
     try {
       const data = await fetchUserData(username);
-      setUserData(data);
-    } catch (err) {
-      setError('Looks like we can’t find the user');
+      setUser(data);
+    } catch {
+      setError(true);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="p-4 max-w-md mx-auto">
+      <form onSubmit={handleSearch}>
         <input
           type="text"
           value={username}
-          onChange={handleInputChange}
+          onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter GitHub username"
-          className="border p-2"
+          className="border p-2 w-full mb-4"
         />
-        <button type="submit" className="bg-blue-500 text-white p-2">
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Search
         </button>
       </form>
+      
       {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {userData && (
-        <div>
-          <img src={userData.avatar_url} alt={userData.login} width="100" />
-          <h2>{userData.name || userData.login}</h2>
-          <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+      {error && <p className="text-red-500">Looks like we can't find the user</p>}
+      {user && (
+        <div className="mt-4">
+          <img src={user.avatar_url} alt={user.login} className="w-16 h-16 rounded-full" />
+          <h2 className="text-lg font-semibold">{user.name || user.login}</h2>
+          <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500">
             View Profile
           </a>
         </div>
       )}
     </div>
   );
-};
+}
 
 export default Search;

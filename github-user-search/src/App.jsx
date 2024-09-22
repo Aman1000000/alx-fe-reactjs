@@ -1,18 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Search from './components/search';
+import Search from './components/Search';
 
 function App() {
   return (
-    <Router>
-      <div className="container mx-auto p-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <h1 className="text-center text-2xl my-4">GitHub User Search</h1>
+      <Search />
+    </div>
   );
 }
 
